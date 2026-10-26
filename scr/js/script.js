@@ -1,5 +1,7 @@
 const ESTOQUE_MINIMO = 5;
+const SAFRA_MINIMA = 1900;
 const MAX_CADASTROS = 5;
+
 
 function pedirTexto(mensagem) {
     let resposta = prompt(mensagem);
@@ -21,6 +23,18 @@ function pedirTipo() {
         tipoMin = tipo.toLowerCase();
     }
     return tipo;
+}
+
+
+
+function pedirNumero(mensagem, minimo, maximo) {
+    let numero = Number(pedirTexto(mensagem));
+
+    while (!Number.isInteger(numero) || numero < minimo || numero > maximo) {
+        alert("Valor inválido! Digite um número inteiro entre " + minimo + " e " + maximo + ".");
+        numero = Number(pedirTexto(mensagem));
+    }
+    return numero;
 }
 
 let NomeVinho = prompt("Digite o nome do vinho: ");
