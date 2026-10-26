@@ -37,6 +37,20 @@ function pedirNumero(mensagem, minimo, maximo) {
     return numero;
 }
 
+function pedirSimNao(mensagem) {
+    let resposta = pedirTexto(mensagem + " (s/n)").toLowerCase();
+
+    while (resposta !== "s" && resposta !== "n") {
+        alert("Responda apenas com s ou n.");
+        resposta = pedirTexto(mensagem + " (s/n)").toLowerCase();
+    }
+    return resposta === "s";
+}
+
+
+
+
+
 let NomeVinho = prompt("Digite o nome do vinho: ");
 let TipoVinho = prompt("Digite o tipo do vinho (Tinto, Branco, Rosé): ")
 let Safra = prompt("Digite a safra(ano): ")
