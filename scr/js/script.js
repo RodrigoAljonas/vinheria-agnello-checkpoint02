@@ -47,6 +47,9 @@ function pedirSimNao(mensagem) {
     return resposta === "s";
 }
 
+function estoqueBaixo(quantidade) {
+    return quantidade < ESTOQUE_MINIMO;
+}
 
 
 
