@@ -51,6 +51,19 @@ function estoqueBaixo(quantidade) {
     return quantidade < ESTOQUE_MINIMO;
 }
 
+function classificarVinho(safra) {
+    let anoAtual = new Date().getFullYear();
+    let idade = anoAtual - safra;
+
+    if (idade <= 5) {
+        return "Jovem";
+    } else if (idade <= 15) {
+        return "Amadurecido";
+    } else {
+        return "Antigo";
+    }
+}
+
 
 
 
