@@ -1,3 +1,28 @@
+const ESTOQUE_MINIMO = 5;
+const MAX_CADASTROS = 5;
+
+function pedirTexto(mensagem) {
+    let resposta = prompt(mensagem);
+
+    while (resposta === null || resposta.trim() === "") {
+        alert("Entrada inválida! Digite algum valor.");
+        resposta = prompt(mensagem);
+    }
+    return resposta.trim();
+}
+
+function pedirTipo() {
+    let tipo = pedirTexto("Digite o tipo do vinho (Tinto, Branco, Rosé):");
+    let tipoMin = tipo.toLowerCase();
+
+    while (tipoMin !== "tinto" && tipoMin !== "branco" && tipoMin !== "rosé" && tipoMin !== "rose") {
+        alert("Tipo inválido! Use Tinto, Branco ou Rosé.");
+        tipo = pedirTexto("Digite o tipo do vinho (Tinto, Branco, Rosé):");
+        tipoMin = tipo.toLowerCase();
+    }
+    return tipo;
+}
+
 let NomeVinho = prompt("Digite o nome do vinho: ");
 let TipoVinho = prompt("Digite o tipo do vinho (Tinto, Branco, Rosé): ")
 let Safra = prompt("Digite a safra(ano): ")
