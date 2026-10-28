@@ -84,3 +84,60 @@ function mostrarVinho(numero, nome, tipo, safra, quantidade, classificacao, baix
 function linhaResumo(numero, nome, safra, quantidade) {
     return numero + ") " + nome + " - safra " + safra + " - " + quantidade + " un.\n";
 }
+
+
+
+function iniciarSistema() {
+    let nome1, nome2, nome3, nome4, nome5;
+    let safra1, safra2, safra3, safra4, safra5;
+    let quant1, quant2, quant3, quant4, quant5;
+
+    let totalCadastros = 0;
+    let totalEstoqueBaixo = 0;
+    let safraMaisAntiga = 0;
+    let nomeMaisAntigo = "";
+
+    let continuar = true;
+
+    while (continuar && totalCadastros < MAX_CADASTROS) {
+        let nome = pedirTexto("Digite o nome do vinho:");
+        let tipo = pedirTipo();
+        let safra = pedirNumero("Digite a safra (ano):", SAFRA_MINIMA, new Date().getFullYear());
+        let quantidade = pedirNumero("Digite a quantidade em estoque:", 0, 100000);
+
+        totalCadastros++;
+
+        let classificacao = classificarVinho(safra);
+        let baixo = estoqueBaixo(quantidade);
+
+        
+        if (totalCadastros === 1) {
+            nome1 = nome; safra1 = safra; quant1 = quantidade;
+        } else if (totalCadastros === 2) {
+            nome2 = nome; safra2 = safra; quant2 = quantidade;
+        } else if (totalCadastros === 3) {
+            nome3 = nome; safra3 = safra; quant3 = quantidade;
+        } else if (totalCadastros === 4) {
+            nome4 = nome; safra4 = safra; quant4 = quantidade;
+        } else {
+            nome5 = nome; safra5 = safra; quant5 = quantidade;
+        }
+
+        if (baixo) {
+            totalEstoqueBaixo++;
+        }
+
+        if (totalCadastros === 1 || safra < safraMaisAntiga) {
+            safraMaisAntiga = safra;
+            nomeMaisAntigo = nome;
+        }
+
+        mostrarVinho(totalCadastros, nome, tipo, safra, quantidade, classificacao, baixo);
+
+        if (totalCadastros < MAX_CADASTROS) {
+            continuar = pedirSimNao("Deseja cadastrar outro vinho?");
+        } else {
+            alert("Limite de " + MAX_CADASTROS + " cadastros atingido.");
+        }
+    }
+}
