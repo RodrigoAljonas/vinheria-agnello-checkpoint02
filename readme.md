@@ -22,4 +22,4 @@ Evolução do Checkpoint 01. O sistema funciona via `prompt()` e `alert()` e ago
 
 ## GitHub Pages
 
-
+https://rodrigoaljonas.github.io/vinheria-agnello-checkpoint02/
