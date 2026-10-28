@@ -65,17 +65,22 @@ function classificarVinho(safra) {
 }
 
 
+function mostrarVinho(numero, nome, tipo, safra, quantidade, classificacao, baixo) {
+    console.log("----- Vinho " + numero + " -----");
+    console.log("Nome do vinho: " + nome);
+    console.log("Tipo do vinho: " + tipo);
+    console.log("Safra: " + safra);
+    console.log("Quantidade em estoque: " + quantidade);
+    console.log("Classificação: " + classificacao);
+    console.log("Estoque baixo: " + (baixo ? "SIM" : "não"));
 
+    let aviso = "Vinho " + numero + " cadastrado! Veja os detalhes no console.";
+    if (baixo) {
+        aviso += "\nATENÇÃO: estoque baixo (menos de " + ESTOQUE_MINIMO + " unidades)!";
+    }
+    alert(aviso);
+}
 
-let NomeVinho = prompt("Digite o nome do vinho: ");
-let TipoVinho = prompt("Digite o tipo do vinho (Tinto, Branco, Rosé): ")
-let Safra = prompt("Digite a safra(ano): ")
-let QtdEstoque = prompt("Digite a quantidadade em estoque: ")
-
-alert("Cadastro realizado! Veja os detalhes no console.")
-alert("A seguir, veja os detalhes do vinho no console.")
-
-console.log (`Nome do vinho:  ${NomeVinho}`)
-console.log (`Tipo do vinho:  ${TipoVinho}`)
-console.log (`Safra:  ${Safra}`)
-console.log (`Quantidade em estoque:  ${QtdEstoque}`)
+function linhaResumo(numero, nome, safra, quantidade) {
+    return numero + ") " + nome + " - safra " + safra + " - " + quantidade + " un.\n";
+}
