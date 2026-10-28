@@ -139,5 +139,27 @@ function iniciarSistema() {
         } else {
             alert("Limite de " + MAX_CADASTROS + " cadastros atingido.");
         }
-    }
+    }   
+
+   let lista = "";
+    if (totalCadastros >= 1) { lista += linhaResumo(1, nome1, safra1, quant1); }
+    if (totalCadastros >= 2) { lista += linhaResumo(2, nome2, safra2, quant2); }
+    if (totalCadastros >= 3) { lista += linhaResumo(3, nome3, safra3, quant3); }
+    if (totalCadastros >= 4) { lista += linhaResumo(4, nome4, safra4, quant4); }
+    if (totalCadastros >= 5) { lista += linhaResumo(5, nome5, safra5, quant5); }
+
+
+    console.log("========== RESUMO FINAL ==========");
+    console.log("Cadastros realizados: " + totalCadastros);
+    console.log("Vinhos com estoque baixo: " + totalEstoqueBaixo);
+    console.log("Vinho de safra mais antiga: " + nomeMaisAntigo + " (" + safraMaisAntiga + ")");
+
+    alert(
+        "RESUMO FINAL\n\n" + lista +
+        "\nCadastros realizados: " + totalCadastros +
+        "\nVinhos com estoque baixo: " + totalEstoqueBaixo +
+        "\nSafra mais antiga: " + nomeMaisAntigo + " (" + safraMaisAntiga + ")"
+    );
 }
+
+iniciarSistema();
